@@ -29,20 +29,7 @@ function App() {
     "9",
   ];
   const [colorChange, setColorChange] = useState("버튼을 눌러보세요!");
-  const [reSort1, setReSort1] = useState("null");
-  const [reSort2, setReSort2] = useState("null");
-  const [reSort3, setReSort3] = useState("null");
-  const [reSort4, setReSort4] = useState("null");
-  const [reSort5, setReSort5] = useState("null");
-  const [reSort6, setReSort6] = useState("null");
-  const [reSort7, setReSort7] = useState("null");
-  const [reSort8, setReSort8] = useState("null");
-  const [reSort9, setReSort9] = useState("null");
-  const [reSort10, setReSort10] = useState("null");
-  const [reSort11, setReSort11] = useState("null");
-  const [reSort12, setReSort12] = useState("null");
-  const [reSort13, setReSort13] = useState("null");
-  const [reSort14, setReSort14] = useState("null");
+  const [colorVariation, setColorVariation] = useState([]);
   const randomColor = () => {
     const resultDigit = [];
     for (let i = 1; i <= 6; i++) {
@@ -51,71 +38,28 @@ function App() {
       resultDigit.push(randomAlphabet);
     }
     setColorChange(resultDigit.join(""));
-
     //2개씩 나눠 재조합
-    const reSort1 = resultDigit.slice(0, 2).join("");
-    const reSort2 = resultDigit.slice(2, 4).join("");
-    const reSort3 = resultDigit.slice(4, 6).join("");
 
-    const reSorted1 = reSort1 + reSort3 + reSort2;
-    const reSorted2 = reSort2 + reSort1 + reSort3;
-    const reSorted3 = reSort2 + reSort3 + reSort1;
-    const reSorted4 = reSort3 + reSort1 + reSort2;
-    const reSorted5 = reSort3 + reSort2 + reSort1;
-
-    const reSorted6 = reSort1 + reSort1 + reSort1;
-    const reSorted7 = reSort2 + reSort2 + reSort2;
-    const reSorted8 = reSort3 + reSort3 + reSort3;
-
-    const reSorted9 = reSort1 + reSort1 + reSort2;
-    const reSorted10 = reSort1 + reSort1 + reSort3;
-    const reSorted11 = reSort2 + reSort2 + reSort1;
-    const reSorted12 = reSort2 + reSort2 + reSort3;
-    const reSorted13 = reSort3 + reSort3 + reSort1;
-    const reSorted14 = reSort3 + reSort3 + reSort2;
-
-    setReSort1(reSorted1);
-    setReSort2(reSorted2);
-    setReSort3(reSorted3);
-    setReSort4(reSorted4);
-    setReSort5(reSorted5);
-    setReSort6(reSorted6);
-    setReSort7(reSorted7);
-    setReSort8(reSorted8);
-    setReSort9(reSorted9);
-    setReSort10(reSorted10);
-    setReSort11(reSorted11);
-    setReSort12(reSorted12);
-    setReSort13(reSorted13);
-    setReSort14(reSorted14);
+    const colorVariationArr = [];
+    for (let i = 0; i <= alphabet.length; i += 3) {
+      const variation =
+        resultDigit.slice(0, 4).join("") + alphabet[i].repeat(2);
+      colorVariationArr.push(variation);
+      setColorVariation(colorVariationArr);
+    }
   };
 
   return (
     <div>
       <button onClick={randomColor}>컬러 체인지</button>
       <RandomColor color={colorChange} />
-      <h1 style={{ color: `#${colorChange}` }}>
-        CSS HEX CODE VARIATION #{colorChange}
-      </h1>
+      <h1 style={{ color: `#${colorChange}` }}>CSS HEX CODE VARIATION </h1>
+
       <div className="flexColor">
-        <RandomColor color={reSort1} />
-        <RandomColor color={reSort2} />
-        <RandomColor color={reSort3} />
-        <RandomColor color={reSort4} />
-        <RandomColor color={reSort5} />
-      </div>
-      <div className="flexColor">
-        <RandomColor color={reSort6} />
-        <RandomColor color={reSort7} />
-        <RandomColor color={reSort8} />
-      </div>
-      <div className="flexColor">
-        <RandomColor color={reSort9} />
-        <RandomColor color={reSort10} />
-        <RandomColor color={reSort11} />
-        <RandomColor color={reSort12} />
-        <RandomColor color={reSort13} />
-        <RandomColor color={reSort14} />
+        <RandomColor color={colorVariation[2]} />
+        <RandomColor color={colorVariation[3]} />
+        <RandomColor color={colorVariation[4]} />
+        <RandomColor color={colorVariation[5]} />
       </div>
     </div>
   );
