@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [change, setChange] = useState(null);
+  const colorChangeButton = () => {
+    randomColor();
+  };
+
+  const randomColor = () => {
+    setChange(Math.ceil(Math.random() * 1000000));
+    //a~f까지 넣기
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={colorChangeButton}>컬러체인지!</button>
+      <h1 style={{ color: `#${change}` }}>오늘의 색깔 #{change}</h1>
+      헬로 달링
     </div>
   );
 }
