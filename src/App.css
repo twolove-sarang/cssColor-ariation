@@ -8,3 +8,8 @@
 .flexColor {
   display: flex;
 }
+
+.flexColor div {
+  margin-right: 2px;
+  margin-left: 2px;
+}
