@@ -1,5 +1,6 @@
 import "./App.css";
 import RandomColor from "./component/RandomColor";
+import HistorySection from "./component/HistorySection";
 import { useState } from "react";
 
 // a~f까지 넣기v
@@ -30,7 +31,10 @@ function App() {
   ];
   const [colorChange, setColorChange] = useState("버튼을 눌러보세요!");
   const [colorVariation, setColorVariation] = useState([]);
+  const [recommendColor, setRecommendColor] = useState([]);
+
   const randomColor = () => {
+    //컬러 추천
     const resultDigit = [];
     for (let i = 1; i <= 6; i++) {
       const randomAlphabet =
@@ -38,8 +42,18 @@ function App() {
       resultDigit.push(randomAlphabet);
     }
     setColorChange(resultDigit.join(""));
-    //2개씩 나눠 재조합
 
+    //히스토리
+
+    //포인트컬러, 서브컬러
+    const recommendColor =
+      resultDigit.slice(1, 3).join("") +
+      resultDigit.slice(3, 5).join("") +
+      resultDigit.slice(3, 5).join("");
+
+    setRecommendColor(recommendColor);
+
+    //그라데이션
     const colorVariationArr = [];
     for (let i = 0; i <= alphabet.length; i += 3) {
       const variation =
@@ -52,8 +66,10 @@ function App() {
   return (
     <div>
       <button onClick={randomColor}>컬러 체인지</button>
-      <RandomColor color={colorChange} />
       <h1 style={{ color: `#${colorChange}` }}>CSS HEX CODE VARIATION </h1>
+      <RandomColor color={colorChange} />
+
+      <RandomColor color={recommendColor} />
 
       <div className="flexColor">
         <RandomColor color={colorVariation[0]} />
