@@ -11,22 +11,22 @@ import { useState } from "react";
 
 function App() {
   const alphabet = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
     "f",
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
+    "e",
+    "d",
+    "c",
+    "b",
+    "a",
     "9",
+    "8",
+    "7",
+    "6",
+    "5",
+    "4",
+    "3",
+    "2",
+    "1",
+    "0",
   ];
   const [colorChange, setColorChange] = useState("버튼을 눌러보세요!");
   const [colorVariation, setColorVariation] = useState([]);
@@ -56,6 +56,8 @@ function App() {
       <h1 style={{ color: `#${colorChange}` }}>CSS HEX CODE VARIATION </h1>
 
       <div className="flexColor">
+        <RandomColor color={colorVariation[0]} />
+        <RandomColor color={colorVariation[1]} />
         <RandomColor color={colorVariation[2]} />
         <RandomColor color={colorVariation[3]} />
         <RandomColor color={colorVariation[4]} />
