@@ -73,9 +73,9 @@ function App() {
 
       <h1 className="main_title">HEX Color palette</h1>
       <p className="sub_explain">
-        Color random combination site for designers
+        컬러 조합으로 골머리 앓는 디자이너를 위해
         <br />
-        who are worried about color combinations
+        HEX코드로 컬러를 뽑아주는 사이트 입니다🤟
       </p>
       <button onClick={randomColor} className="colorChangeButton">
         컬러 셀렉터
