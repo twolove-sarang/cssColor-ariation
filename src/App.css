@@ -13,3 +13,22 @@
   margin-right: 2px;
   margin-left: 2px;
 }
+
+.main_Section {
+  text-align: center;
+}
+
+.main_part {
+  width: 80%;
+}
+
+.colorChangeButton {
+  width: 400px;
+  border-radius: 0.5rem;
+  border: 0;
+  background-color: #bba7f0;
+  padding: 0.8rem;
+  color: white;
+  font-weight: 800;
+  font-size: 1rem;
+}
