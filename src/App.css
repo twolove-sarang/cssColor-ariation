@@ -1,34 +1,126 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #151b22;
+}
+
 .recommendColor {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 10px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 2rem;
+}
+
+.bar {
+  border-top: 0.5px solid #a3a3a3;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .flexColor {
   display: flex;
-}
-
-.flexColor div {
-  margin-right: 2px;
-  margin-left: 2px;
-}
-
-.main_Section {
-  text-align: center;
+  justify-content: space-between;
+  padding: 2rem auto 0 auto;
+  padding-left: auto;
+  padding-right: auto;
 }
 
 .main_part {
-  width: 80%;
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main_title {
+  display: block;
+  text-transform: uppercase;
+  color: #f9f9f9;
+  padding: 8rem 0 0.5rem 2rem;
+  width: 180px;
+}
+
+.sub_explain {
+  color: #a3a3a3;
+  padding: 0.8rem 2rem 0.6rem 2rem;
 }
 
 .colorChangeButton {
   width: 400px;
   border-radius: 0.5rem;
   border: 0;
-  background-color: #bba7f0;
+  background-color: #f9f9f9;
   padding: 0.8rem;
-  color: white;
+  color: #151b22;
   font-weight: 800;
   font-size: 1rem;
+  margin: 2rem;
+}
+
+.colorChangeButton:active {
+  background-color: #967ee9;
+}
+
+.sub_color_name {
+  color: #a3a3a3;
+  padding: 0 2rem 0.6rem 2rem;
+  text-align: center;
+}
+.sub_color_code {
+  color: #a3a3a3;
+  padding: 0 2rem 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.combination_color {
+  display: flex;
+}
+
+.example_design {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem;
+}
+
+.example_design button {
+  margin: 1rem;
+  border-radius: 0.5rem;
+  border: 0;
+  padding: 0.8rem;
+  /* color: #151b22; */
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.example_design button:active {
+  background-color: wheat;
+}
+
+.example_design input {
+  margin: 1rem;
+  border-radius: 0.5rem;
+  border: 0;
+  padding: 0.8rem;
+  /* color: #151b22; */
+  font-weight: 800;
+  font-size: 1rem;
+}
+.sub_explain2 {
+  color: #a3a3a3;
+  padding: 0.8rem 2rem 0.6rem 2rem;
+  text-align: center;
+}
+.example_flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.main_flex_display {
+  display: flex;
 }

@@ -71,16 +71,23 @@ function App() {
     <div className="main_part">
       <div>{historyUpdate}</div>
 
-      <h1 style={{ color: `#${colorChange}` }} className="main_Section">
-        CSS HEX CODE RECOMMEND
-      </h1>
+      <h1 className="main_title">HEX Color palette</h1>
+      <p className="sub_explain">
+        Color random combination site for designers
+        <br />
+        who are worried about color combinations
+      </p>
       <button onClick={randomColor} className="colorChangeButton">
-        컬러 체인지
+        컬러 셀렉터
       </button>
-      <RandomColor color={colorChange} />
+      <div className="combination_color">
+        <RandomColor color={colorChange} name="Primary" />
+        <RandomColor color={recommendColor} name="Secondary" />
+      </div>
 
-      <RandomColor color={recommendColor} />
+      <div className="bar"></div>
 
+      <div className="sub_explain">Recommend Color</div>
       <div className="flexColor">
         <RandomColor color={colorVariation[0]} />
         <RandomColor color={colorVariation[1]} />
@@ -88,6 +95,86 @@ function App() {
         <RandomColor color={colorVariation[3]} />
         <RandomColor color={colorVariation[4]} />
         <RandomColor color={colorVariation[5]} />
+      </div>
+
+      <div className="bar"></div>
+
+      <div className="example_flex">
+        <div>
+          <div className="sub_explain2">Button Style</div>
+          <div className="example_design">
+            <button
+              style={{
+                color: `#${colorChange}`,
+                backgroundColor: `#${recommendColor}`,
+              }}
+            >
+              Button
+            </button>
+            <button
+              style={{
+                color: `#${recommendColor}`,
+                backgroundColor: `#${colorChange}`,
+              }}
+            >
+              Button
+            </button>
+            <button
+              style={{
+                color: `#${recommendColor}`,
+                border: `1px solid #${colorChange}`,
+                backgroundColor: `white 0.1`,
+              }}
+            >
+              Button
+            </button>
+            <button
+              style={{
+                color: `#${colorChange}`,
+                border: `1px solid #${recommendColor}`,
+                backgroundColor: `white 0.1`,
+              }}
+            >
+              Button
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <div className="sub_explain2">Input Style</div>
+          <div className="example_design">
+            <input
+              placeholder="type it!"
+              style={{
+                color: `#${colorChange}`,
+                backgroundColor: `#${recommendColor}`,
+              }}
+            />
+            <input
+              placeholder="type it!"
+              style={{
+                color: `#${recommendColor}`,
+                backgroundColor: `#${colorChange}`,
+              }}
+            />
+            <input
+              placeholder="type it!"
+              style={{
+                color: `#${recommendColor}`,
+                border: `1px solid #${colorChange}`,
+                backgroundColor: `white 0.1`,
+              }}
+            />
+            <input
+              placeholder="type it!"
+              style={{
+                color: `#${colorChange}`,
+                border: `1px solid #${recommendColor}`,
+                backgroundColor: `white 0.1`,
+              }}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

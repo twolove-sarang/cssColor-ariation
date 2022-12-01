@@ -1,13 +1,14 @@
 import React from "react";
 
-const RandomColor = ({ color }) => {
+const RandomColor = ({ color, name }) => {
   return (
     <div>
       <div
         className="recommendColor"
         style={{ backgroundColor: `#${color}` }}
       ></div>
-      <h1 style={{ color: `#${color}` }}>#{color}</h1>
+      <p className="sub_color_name">{name}</p>
+      <h1 className="sub_color_code">#{color}</h1>
     </div>
   );
 };
