@@ -29,27 +29,31 @@ function App() {
     "1",
     "0",
   ];
-  const [colorChange, setColorChange] = useState("버튼을 눌러보세요!");
+  const [colorChange, setColorChange] = useState([]);
   const [colorVariation, setColorVariation] = useState([]);
   const [recommendColor, setRecommendColor] = useState([]);
+  const [historyUpdate, setHistoryUpdate] = useState([]);
 
   const randomColor = () => {
     //컬러 추천
-    const resultDigit = [];
-    for (let i = 1; i <= 6; i++) {
-      const randomAlphabet =
-        alphabet[Math.floor(Math.random() * alphabet.length)];
-      resultDigit.push(randomAlphabet);
-    }
-    setColorChange(resultDigit.join(""));
+    const randomAlphabet =
+      alphabet[Math.floor(Math.random() * alphabet.length)] +
+      alphabet[Math.floor(Math.random() * alphabet.length)] +
+      alphabet[Math.floor(Math.random() * alphabet.length)] +
+      alphabet[Math.floor(Math.random() * alphabet.length)] +
+      alphabet[Math.floor(Math.random() * alphabet.length)] +
+      alphabet[Math.floor(Math.random() * alphabet.length)];
+    setColorChange(randomAlphabet);
 
     //히스토리
+    // const historyArr = colorChange
+    // setHistoryUpdate(...historyArr, historyArr);
 
     //포인트컬러, 서브컬러
     const recommendColor =
-      resultDigit.slice(1, 3).join("") +
-      resultDigit.slice(3, 5).join("") +
-      resultDigit.slice(3, 5).join("");
+      randomAlphabet.split("").slice(1, 3).join("") +
+      randomAlphabet.split("").slice(3, 5).join("") +
+      randomAlphabet.split("").slice(3, 5).join("");
 
     setRecommendColor(recommendColor);
 
@@ -57,16 +61,22 @@ function App() {
     const colorVariationArr = [];
     for (let i = 0; i <= alphabet.length; i += 3) {
       const variation =
-        resultDigit.slice(0, 4).join("") + alphabet[i].repeat(2);
+        randomAlphabet.split("").slice(0, 4).join("") + alphabet[i].repeat(2);
       colorVariationArr.push(variation);
       setColorVariation(colorVariationArr);
     }
   };
 
   return (
-    <div>
-      <button onClick={randomColor}>컬러 체인지</button>
-      <h1 style={{ color: `#${colorChange}` }}>CSS HEX CODE VARIATION </h1>
+    <div className="main_part">
+      <div>{historyUpdate}</div>
+
+      <h1 style={{ color: `#${colorChange}` }} className="main_Section">
+        CSS HEX CODE RECOMMEND
+      </h1>
+      <button onClick={randomColor} className="colorChangeButton">
+        컬러 체인지
+      </button>
       <RandomColor color={colorChange} />
 
       <RandomColor color={recommendColor} />
