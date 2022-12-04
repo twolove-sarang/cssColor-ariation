@@ -38,7 +38,7 @@ body {
   display: block;
   text-transform: uppercase;
   color: #f9f9f9;
-  padding: 8rem 0 0.5rem 2rem;
+  padding: 2rem 0 0.5rem 2rem;
   width: 180px;
 }
 
@@ -123,4 +123,19 @@ body {
 
 .main_flex_display {
   display: flex;
+}
+
+.historyColor {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.historyFlex {
+  display: flex;
+  padding: 2rem;
+  width: 1035px;
+  overflow: scroll;
 }

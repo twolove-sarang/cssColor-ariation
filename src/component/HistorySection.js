@@ -1,17 +1,15 @@
 import React from "react";
 
-const HistorySection = ({ history }) => {
-  console.log("history", history);
+export default function HistorySection({ history }) {
+  const deleteCode = () => {};
+  console.log(history);
   return (
-    <div>
-      <div>history</div>
-      <div
-        className="recommendColor"
-        style={{ backgroundColor: `#${history}` }}
-      ></div>
-      <h1 style={{ color: `#${history}` }}>#{history}</h1>
+    <div className="historyFlex">
+      {history.historyID.map((el, index) => (
+        <div>
+          <div className="historyColor" key={index} style={{ backgroundColor: `#${el.code}` }} onClick={deleteCode}></div>
+        </div>
+      ))}
     </div>
   );
-};
-
-export default HistorySection;
+}
