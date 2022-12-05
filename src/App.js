@@ -4,6 +4,7 @@ import { useState } from "react";
 import ButtonPreview from "./component/ButtonPreview";
 import InputPreview from "./component/InputPreview";
 import HistorySection from "./component/HistorySection";
+import Footer from "./component/Footer";
 
 // a~f까지 넣기v
 // - 알파벳, 숫자 섞기
@@ -92,6 +93,7 @@ export default function App() {
           <InputPreview color={{ colorChange, recommendedColor }} />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
