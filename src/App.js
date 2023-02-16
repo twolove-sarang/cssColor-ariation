@@ -1,84 +1,98 @@
 import "./App.css";
-import RandomColor from "./component/RandomColor";
 import { useState } from "react";
+import ColorCard from "./component/ColorCard";
 import ButtonPreview from "./component/ButtonPreview";
 import InputPreview from "./component/InputPreview";
 import HistorySection from "./component/HistorySection";
 import Footer from "./component/Footer";
 
-// a~f까지 넣기v
-// - 알파벳, 숫자 섞기
-// - 숫자만 나올수도 있다.
-// - 알파벳만 나올수도 있다.
-// 6자리 이하 안나오게 하기v
-// 3가지 컬러 바리에이션 만들기(조합 색상, 그라데이션, 랜덤색상)
-
 export default function App() {
-  const alphabet = ["f", "e", "d", "c", "b", "a", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0"];
-  const [colorChange, setColorChange] = useState({ color: "ffffff" });
+  const alphabet = [
+    "f",
+    "e",
+    "d",
+    "c",
+    "b",
+    "a",
+    "9",
+    "8",
+    "7",
+    "6",
+    "5",
+    "4",
+    "3",
+    "2",
+    "1",
+    "0",
+  ];
+  const [colorChange, setColorChange] = useState();
+  const [history, setHistory] = useState([]);
   const [colorVariation, setColorVariation] = useState([]);
   const [recommendedColor, setRecommendedColor] = useState([]);
-  const [history, setHistory] = useState({ historyID: [{ code: "ffffff" }] });
 
-  const randomColor = () => {
-    //컬러 추천, 개별 digit 필요
-    const randomAlphabet =
-      alphabet[Math.floor(Math.random() * alphabet.length)] +
-      alphabet[Math.floor(Math.random() * alphabet.length)] +
-      alphabet[Math.floor(Math.random() * alphabet.length)] +
-      alphabet[Math.floor(Math.random() * alphabet.length)] +
-      alphabet[Math.floor(Math.random() * alphabet.length)] +
-      alphabet[Math.floor(Math.random() * alphabet.length)];
-    setColorChange((color) => ({ ...color, color: randomAlphabet }));
+  const randomAlphabet =
+    alphabet[Math.floor(Math.random() * alphabet.length)] +
+    alphabet[Math.floor(Math.random() * alphabet.length)] +
+    alphabet[Math.floor(Math.random() * alphabet.length)] +
+    alphabet[Math.floor(Math.random() * alphabet.length)] +
+    alphabet[Math.floor(Math.random() * alphabet.length)] +
+    alphabet[Math.floor(Math.random() * alphabet.length)];
 
-    //히스토리
-    const code = randomAlphabet;
-    setHistory((color) => ({ ...color, historyID: [{ code }, ...color.historyID] }));
+  const recommendColor =
+    colorChange.split("").slice(1, 3).join("") +
+    colorChange.split("").slice(3, 5).join("") +
+    colorChange.split("").slice(3, 5).join("");
 
-    //포인트컬러, 서브컬러
-    const recommendColor =
-      randomAlphabet.split("").slice(1, 3).join("") +
-      randomAlphabet.split("").slice(1, 3).join("") +
-      randomAlphabet.split("").slice(3, 5).join("");
+  const colorVariationArr = [];
+  for (let i = 0; i <= alphabet.length; i += 3) {
+    const variation =
+      colorChange.split("").slice(0, 4).join("") + alphabet[i].repeat(2);
+    colorVariationArr.push(variation);
+  }
+
+  const handleClickToColorSelector = () => {
+    setColorChange(randomAlphabet);
     setRecommendedColor(recommendColor);
+    setColorVariation(colorVariationArr);
+    setHistory([randomAlphabet, ...history]);
+  };
 
-    //그라데이션
-    const colorVariationArr = [];
-    for (let i = 0; i <= alphabet.length; i += 3) {
-      const variation = randomAlphabet.split("").slice(0, 4).join("") + alphabet[i].repeat(2);
-      colorVariationArr.push(variation);
-    }
+  const handleChangeHistory = (code) => {
+    setColorChange(code);
+    setRecommendedColor(recommendColor);
     setColorVariation(colorVariationArr);
   };
 
   return (
     <div className="main_part">
-      <HistorySection history={history} />
-      <h1 className="main_title">HEX Color palette</h1>
+      <HistorySection history={history} onClick={handleChangeHistory} />
+      <h1 className="main_title font-bold text-4xl">HEX Color palette</h1>
       <p className="sub_explain">
         컬러 조합으로 골머리 앓는 디자이너를 위해
         <br />
-        HEX코드로 컬러를 뽑아주는 사이트 입니다🤟
+        HEX코드로 컬러를 뽑아주는 사이트 입니다. 🤟
       </p>
-      <button onClick={randomColor} className="colorChangeButton">
+      <button
+        onClick={handleClickToColorSelector}
+        className="colorChangeButton"
+      >
         컬러 셀렉터
       </button>
       <div className="combination_color">
-        <RandomColor color={colorChange.color} name="Primary" />
-
-        <RandomColor color={recommendedColor} name="Secondary" />
+        <ColorCard color={colorChange} name="Primary" />
+        <ColorCard color={recommendedColor} name="Secondary" />
       </div>
 
       <div className="bar"></div>
 
       <div className="sub_explain">Recommend Color</div>
       <div className="flexColor">
-        <RandomColor color={colorVariation[0]} />
-        <RandomColor color={colorVariation[1]} />
-        <RandomColor color={colorVariation[2]} />
-        <RandomColor color={colorVariation[3]} />
-        <RandomColor color={colorVariation[4]} />
-        <RandomColor color={colorVariation[5]} />
+        <ColorCard color={colorVariation[0]} />
+        <ColorCard color={colorVariation[1]} />
+        <ColorCard color={colorVariation[2]} />
+        <ColorCard color={colorVariation[3]} />
+        <ColorCard color={colorVariation[4]} />
+        <ColorCard color={colorVariation[5]} />
       </div>
 
       <div className="bar"></div>

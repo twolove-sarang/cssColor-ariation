@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 
 // 내 정보로 바꾸기
 const Footer = () => {
   return (
     <div>
+      <div className="bar"></div>
       <FooterNotice>INTRODUCE</FooterNotice>
       <FooterList>
         <FooterList mainFooter>
@@ -14,15 +15,23 @@ const Footer = () => {
         </FooterList>
         <FooterList logo>
           <a href="https://github.com/twolove-sarang/cssColor-ariation">
-            <img width={30} src="https://cdn-icons-png.flaticon.com/512/25/25231.png" />
+            <img
+              alt="github"
+              width={30}
+              src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+            />
           </a>
           <a href="https://velog.io/@twolove-sarang/series/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-css%EA%B0%80%EC%9D%B4%EB%93%9C">
-            <img width={30} src="https://logodownload.org/wp-content/uploads/2018/02/blogger-logo-icon.png" />
+            <img
+              alt="velog"
+              width={30}
+              src="https://logodownload.org/wp-content/uploads/2018/02/blogger-logo-icon.png"
+            />
           </a>
         </FooterList>
         <FooterList diary>
           <div>This HEX code portfolio made by Sa-Rang, Lee.</div>
-          <div>2022.12.28~updating</div>
+          <div>2022.11.28~updating</div>
         </FooterList>
       </FooterList>
     </div>
@@ -37,7 +46,7 @@ const FooterNotice = styled.div`
   margin-right: auto;
   color: #9f9f9f;
   margin-top: 90px;
-  border-bottom: 1px solid #4f4f4f;
+  // border-bottom: 1px solid #4f4f4f;
   padding: 20px;
   font-size: 18px;
   font-weight: 600;

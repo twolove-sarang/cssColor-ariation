@@ -1,18 +1,16 @@
 import React from "react";
 
-export default function HistorySection({ history }) {
-  //히스토리에서 코드 찾기
-  const findCode = () => {
-    history.historyID.map((el) => el);
-  };
-  console.log(history);
+export default function HistorySection({ history, onClick }) {
   return (
-    <div className="historyFlex">
-      {history.historyID.map((el, index) => (
-        <div>
-          <div className="historyColor" key={index} style={{ backgroundColor: `#${el.code}` }} onClick={findCode}></div>
-        </div>
-      ))}
+    <div className="flex p-8 overflow-scroll gap-8 ">
+      {history &&
+        history.map((el) => (
+          <div
+            onClick={() => onClick(el)}
+            className="w-8 h-8 rounded-full shrink-0"
+            style={{ backgroundColor: `#${el}` }}
+          ></div>
+        ))}
     </div>
   );
 }

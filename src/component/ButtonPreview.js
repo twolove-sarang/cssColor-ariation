@@ -1,13 +1,12 @@
 import React from "react";
 
-export default function ({ color }) {
-  const { colorChange, recommendedColor } = color;
+export default function ({ color: { colorChange, recommendedColor } }) {
   return (
     <div>
       <div className="example_design">
         <button
           style={{
-            color: `#${colorChange.color}`,
+            color: `#${colorChange}`,
             backgroundColor: `#${recommendedColor}`,
           }}
         >
@@ -16,7 +15,7 @@ export default function ({ color }) {
         <button
           style={{
             color: `#${recommendedColor}`,
-            backgroundColor: `#${colorChange.color}`,
+            backgroundColor: `#${colorChange}`,
           }}
         >
           Button
@@ -24,7 +23,7 @@ export default function ({ color }) {
         <button
           style={{
             color: `#${recommendedColor}`,
-            border: `1px solid #${colorChange.color}`,
+            border: `1px solid #${colorChange}`,
             backgroundColor: `white 0.1`,
           }}
         >
@@ -32,7 +31,7 @@ export default function ({ color }) {
         </button>
         <button
           style={{
-            color: `#${colorChange.color}`,
+            color: `#${colorChange}`,
             border: `1px solid #${recommendedColor}`,
             backgroundColor: `white 0.1`,
           }}

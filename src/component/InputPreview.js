@@ -1,14 +1,15 @@
 import React from "react";
 
-export default function InputPreview({ color }) {
-  const { colorChange, recommendedColor } = color;
+export default function InputPreview({
+  color: { colorChange, recommendedColor },
+}) {
   return (
     <div>
       <div className="example_design">
         <input
           placeholder="type it!"
           style={{
-            color: `#${colorChange.color}`,
+            color: `#${colorChange}`,
             backgroundColor: `#${recommendedColor}`,
           }}
         />
@@ -16,21 +17,21 @@ export default function InputPreview({ color }) {
           placeholder="type it!"
           style={{
             color: `#${recommendedColor}`,
-            backgroundColor: `#${colorChange.color}`,
+            backgroundColor: `#${colorChange}`,
           }}
         />
         <input
           placeholder="type it!"
           style={{
             color: `#${recommendedColor}`,
-            border: `1px solid #${colorChange.color}`,
+            border: `1px solid #${colorChange}`,
             backgroundColor: `white 0.1`,
           }}
         />
         <input
           placeholder="type it!"
           style={{
-            color: `#${colorChange.color}`,
+            color: `#${colorChange}`,
             border: `1px solid #${recommendedColor}`,
             backgroundColor: `white 0.1`,
           }}
