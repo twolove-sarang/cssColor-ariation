@@ -25,7 +25,7 @@ export default function App() {
     "1",
     "0",
   ];
-  const [colorChange, setColorChange] = useState();
+  const [colorChange, setColorChange] = useState("#ffffff");
   const [history, setHistory] = useState([]);
   const [colorVariation, setColorVariation] = useState([]);
   const [recommendedColor, setRecommendedColor] = useState([]);

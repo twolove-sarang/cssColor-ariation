@@ -7,7 +7,7 @@ export default function HistorySection({ history, onClick }) {
         history.map((el) => (
           <div
             onClick={() => onClick(el)}
-            className="w-8 h-8 rounded-full shrink-0"
+            className="w-8 h-8 rounded-full shrink-0 cursor-pointer"
             style={{ backgroundColor: `#${el}` }}
           ></div>
         ))}
