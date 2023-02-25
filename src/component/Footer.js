@@ -1,5 +1,5 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React from 'react';
+import styled, { css } from 'styled-components';
 
 // 내 정보로 바꾸기
 const Footer = () => {
@@ -21,7 +21,7 @@ const Footer = () => {
               src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
             />
           </a>
-          <a href="https://velog.io/@twolove-sarang/series/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-css%EA%B0%80%EC%9D%B4%EB%93%9C">
+          <a href="https://velog.io/@twolove-sarang">
             <img
               alt="velog"
               width={30}
