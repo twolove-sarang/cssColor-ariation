@@ -1,34 +1,36 @@
-import "./App.css";
-import { useState } from "react";
-import ColorCard from "./component/ColorCard";
-import ButtonPreview from "./component/ButtonPreview";
-import InputPreview from "./component/InputPreview";
-import HistorySection from "./component/HistorySection";
-import Footer from "./component/Footer";
+import './App.css';
+import { useState } from 'react';
+import ColorCard from './component/ColorCard';
+import ButtonPreview from './component/ButtonPreview';
+import InputPreview from './component/InputPreview';
+import HistorySection from './component/HistorySection';
+import Footer from './component/Footer';
 
 export default function App() {
   const alphabet = [
-    "f",
-    "e",
-    "d",
-    "c",
-    "b",
-    "a",
-    "9",
-    "8",
-    "7",
-    "6",
-    "5",
-    "4",
-    "3",
-    "2",
-    "1",
-    "0",
+    'f',
+    'e',
+    'd',
+    'c',
+    'b',
+    'a',
+    '9',
+    '8',
+    '7',
+    '6',
+    '5',
+    '4',
+    '3',
+    '2',
+    '1',
+    '0',
   ];
-  const [colorChange, setColorChange] = useState("#ffffff");
+  const [colorChange, setColorChange] = useState('');
   const [history, setHistory] = useState([]);
   const [colorVariation, setColorVariation] = useState([]);
   const [recommendedColor, setRecommendedColor] = useState([]);
+
+  console.log(colorVariation);
 
   const randomAlphabet =
     alphabet[Math.floor(Math.random() * alphabet.length)] +
@@ -38,28 +40,30 @@ export default function App() {
     alphabet[Math.floor(Math.random() * alphabet.length)] +
     alphabet[Math.floor(Math.random() * alphabet.length)];
 
-  const recommendColor =
-    colorChange.split("").slice(1, 3).join("") +
-    colorChange.split("").slice(3, 5).join("") +
-    colorChange.split("").slice(3, 5).join("");
+  const recommendColors =
+    randomAlphabet.split('').slice(1, 3).join('') +
+    randomAlphabet.split('').slice(3, 5).join('') +
+    randomAlphabet.split('').slice(3, 5).join('');
 
   const colorVariationArr = [];
   for (let i = 0; i <= alphabet.length; i += 3) {
     const variation =
-      colorChange.split("").slice(0, 4).join("") + alphabet[i].repeat(2);
+      randomAlphabet.split('').slice(0, 4).join('') + alphabet[i].repeat(2);
     colorVariationArr.push(variation);
   }
 
   const handleClickToColorSelector = () => {
     setColorChange(randomAlphabet);
-    setRecommendedColor(recommendColor);
+
+    setRecommendedColor(recommendColors);
     setColorVariation(colorVariationArr);
+
     setHistory([randomAlphabet, ...history]);
   };
 
   const handleChangeHistory = (code) => {
     setColorChange(code);
-    setRecommendedColor(recommendColor);
+    setRecommendedColor(recommendColors);
     setColorVariation(colorVariationArr);
   };
 
