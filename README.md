@@ -9,3 +9,6 @@
 디자이너들에게 많은 도움이 되었으면 좋겠습니다 :)
 
 - 히스토리기능 추가 완료
+
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/113573974/221332869-7702c2ce-c1c2-4ad2-8267-f3a46f2301b5.gif)
